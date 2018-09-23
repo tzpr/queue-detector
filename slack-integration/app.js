@@ -1,9 +1,15 @@
 
-const express = require('express');
-const request = require('request');
-require('dotenv').config() // read config data from .env
+const express = require('express'); // https://www.npmjs.com/package/express
+const request = require('request'); // https://www.npmjs.com/package/request
+const redis = require("redis");     // https://github.com/NodeRedis/node_redis
+const message_broker = redis.createClient();
+require('dotenv').config()          // https://www.npmjs.com/package/dotenv
 
-//Check https://api.slack.com/tutorials/tunneling-with-ngrok for more info
+// https://nodejs.org/api/util.html#util_util_promisify_original
+const {promisify} = require('util');
+const redisGetAsync = promisify(message_broker.get).bind(message_broker);
+
+//Check https://api.slack.com/tutorials/tunneling-with-ngrok
 
 // Instantiates Express and assigns app variable to it
 const app = express();
@@ -11,10 +17,20 @@ const app = express();
 // Define a port we want to listen to
 const PORT = 4390;
 
+function getQueueState() {
+    return redisGetAsync('queue_state').then(function(res) {
+        return res;
+    });
+}
+
+message_broker.on("error", function (err) {
+    console.log("Error " + err);
+});
+
 // Lets start server
 app.listen(PORT, function () {
     //Callback triggered when server is successfully listening. Hurray!
-    console.log("Example app listening on port " + PORT);
+    console.log("App listening on port " + PORT);
 });
 
 // This route handles GET requests to our root ngrok address and responds with the same "Ngrok is working message" we used before
@@ -43,14 +59,16 @@ app.get('/oauth', function(req, res) {
                 console.log(error);
             } else {
                 res.json(body);
-
             }
         })
     }
 });
 
-// Route the endpoint that our slash command will point to and send back a simple response to indicate that ngrok is working
+// Route the endpoint that our slash command will point to
 app.post('/command', function(req, res) {
-     // TODO: call the python script
-    res.send('Hello stranger! There might be some queue or then not...');
+    // ask queue state from redis
+    getQueueState().then(function(state) {
+        console.log('queue state from redis: ' + state);
+        res.send(state);
+    });
 });

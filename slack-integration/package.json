@@ -11,13 +11,15 @@
     "python3",
     "slack",
     "detenv",
-    "request"
+    "request",
+    "redis"
   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "6.0.0",
     "express": "4.16.3",
+    "redis": "2.8.0",
     "request": "2.88.0"
   }
 }
