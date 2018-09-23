@@ -5,3 +5,7 @@ http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_im
 https://botkit.ai/
 
 https://ngrok.com/
+
+https://www.sohamkamani.com/blog/2015/08/21/python-nodejs-comm/
+
+https://medium.com/@HolmesLaurence/integrating-node-and-python-6b8454bfc272
