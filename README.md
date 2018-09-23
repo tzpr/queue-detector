@@ -6,6 +6,4 @@ https://api.slack.com/tutorials/tunneling-with-ngrok
 
 https://ngrok.com/
 
-https://www.sohamkamani.com/blog/2015/08/21/python-nodejs-comm/
-
-https://medium.com/@HolmesLaurence/integrating-node-and-python-6b8454bfc272
+https://redis.io/topics/quickstart
