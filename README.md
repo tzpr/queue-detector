@@ -2,7 +2,7 @@
 
 http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html
 
-https://botkit.ai/
+https://api.slack.com/tutorials/tunneling-with-ngrok
 
 https://ngrok.com/
 
