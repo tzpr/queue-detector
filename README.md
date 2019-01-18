@@ -3,8 +3,9 @@
 
 Components:
 
-Redis (https://redis.io/topics/quickstart)
+Redis
  - cache for queue state 
+ - https://redis.io/topics/quickstart
 
 Node application server
  - integrates Slack channel to the system, receives messages from Slack
