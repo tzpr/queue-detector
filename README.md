@@ -1,5 +1,20 @@
 # detect change, predict queue
 
+
+Components:
+
+Redis
+ - cache for queue state 
+
+Node application server
+ - integrates Slack channel to the system, receives messages from Slack
+ - reads queue state from Redis cache
+ 
+Python application
+ - interprets queue state from images
+ - updates queue state to Redis cache
+ 
+
 http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html
 
 https://api.slack.com/tutorials/tunneling-with-ngrok
@@ -10,13 +25,6 @@ https://redis.io/topics/quickstart
 
 
 
-Components:
-
-Redis
- - cache for queue state 
-
-Node application server
- - integrates Slack channel to the system, receives messages from Slack
  
 
 
