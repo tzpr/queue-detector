@@ -7,3 +7,18 @@ https://api.slack.com/tutorials/tunneling-with-ngrok
 https://ngrok.com/
 
 https://redis.io/topics/quickstart
+
+
+
+Components:
+
+Redis
+ - cache for queue state 
+
+Node application server
+ - integrates Slack channel to the system, receives messages from Slack
+ 
+
+
+
+
