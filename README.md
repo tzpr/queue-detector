@@ -4,7 +4,7 @@
 Components:
 
 Redis
- - cache for queue state 
+ - stores queue state 
  - https://redis.io/topics/quickstart
 
 Node application server
