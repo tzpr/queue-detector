@@ -6,3 +6,7 @@ slack-integration/node_modules
 
 # ngrok binary
 ngrok
+
+# editor files
+.vscode
+slack-integration/.vscode
