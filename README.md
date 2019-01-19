@@ -43,7 +43,9 @@ Python application
 
 ### Running on localhost (with docker)
 
-TBD
+1. execute in root folder `docker-compose up`
+
+2. create and configure Slack app to communicate with node API
 
  
 
