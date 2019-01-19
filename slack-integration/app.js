@@ -2,16 +2,15 @@
 const express = require('express'); // https://www.npmjs.com/package/express
 const request = require('request'); // https://www.npmjs.com/package/request
 const redis = require("redis");     // https://github.com/NodeRedis/node_redis
-const message_broker = redis.createClient({
-    host: 'localhost',
-    port: 6379
-});
+
+var redisClient = redis.createClient(process.env.REDIS_PORT, 
+    process.env.REDIS_HOST);
 
 require('dotenv').config()          // https://www.npmjs.com/package/dotenv
 
 // https://nodejs.org/api/util.html#util_util_promisify_original
 const {promisify} = require('util');
-const redisGetAsync = promisify(message_broker.get).bind(message_broker);
+const redisGetAsync = promisify(redisClient.get).bind(redisClient);
 
 //Check https://api.slack.com/tutorials/tunneling-with-ngrok
 
@@ -27,7 +26,7 @@ function getQueueState() {
     });
 }
 
-message_broker.on("error", function (err) {
+redisClient.on("error", function (err) {
     console.log("Error " + err);
 });
 

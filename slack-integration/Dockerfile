@@ -2,7 +2,11 @@
 # https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
 # base image
-FROM node:8
+FROM node:10
+
+ENV BIND_PORT 4390
+ENV REDIS_HOST localhost
+ENV REDIS_PORT 6379
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -18,5 +22,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 4390
+EXPOSE $BIND_PORT
+
 CMD [ "node", "app.js" ]

@@ -1,15 +1,12 @@
-from flask_restful import Resource, reqparse, abort
-from flask import request
-
-import redis
-import time
+import os
 import random
 
+from flask_restful import Resource, reqparse, abort
+from flask import request
+from redis import Redis
 
 # connect to redis
-# https://redis.io/topics/quickstart
-# https://github.com/andymccurdy/redis-py
-message_broker = redis.StrictRedis(host='localhost', port=6379, db=0)
+redis = Redis(host=os.environ['REDIS_HOST'], port=os.environ['REDIS_PORT'])
 
 
 class DetectChange(Resource):
@@ -24,8 +21,8 @@ class DetectChange(Resource):
           200:
             description: Message returned
         '''
-        self.check_queue()
-        return {'message': 'Hello from detector!'}
+        state = self.check_queue()
+        return {'message': 'Hello from detector! ' + state}
 
     def analyze_queue_picture(self):
         # just some fake values
@@ -38,5 +35,6 @@ class DetectChange(Resource):
         queue_state = self.analyze_queue_picture()
         print('Current queue state: ', queue_state)
 
-        if message_broker.get('queue_state') is not queue_state:
-            message_broker.set('queue_state', queue_state)        
+        if redis.get('queue_state') is not queue_state:
+            redis.set('queue_state', queue_state)
+        return queue_state        

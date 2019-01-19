@@ -14,3 +14,6 @@ slack-integration/.vscode
 # python stuff
 __pycache__
 venv
+
+# redis stuff
+dump.rdb
