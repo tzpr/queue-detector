@@ -1,6 +1,6 @@
 # detect change, predict queue
 
-![Image of Coffee Assistant](https://github.com/tzpr/queue-detector/blob/master/Screenshot.png | width=100)
+<img src="https://github.com/tzpr/queue-detector/blob/master/Screenshot.png" alt="Image of Coffee Assistant" width="450">
 
 
 Components:
