@@ -7,6 +7,6 @@ services:
      - "5000:5000"
   redis-cache:
     image: "redis:alpine"
-  python-detector:
-    build: .
-    depends_on: redis-cache
+  # python-detector:
+  #   build: .
+  #   depends_on: redis-cache
