@@ -23,25 +23,13 @@ Python application
  
  
 ### Running on localhost
+
 #### Prerequisites
-- Node.js installed (https://nodejs.org/en/)
-- Python 3.x installed (https://www.python.org/downloads/)
+- docker installed (https://www.docker.com/)
 - ngrok installed (https://ngrok.com/download)
-- redis installed (https://redis.io/download)
 - Slack channel were app can be configured (https://api.slack.com/apps)
 
-#### Running (without docker)
-1. start ngrok (provides tunneling to access localhost from the Internet)
-
-2. start redis (queue state cache)
-
-3. start node app (API for slack)
-
-4. start python app (image processing and queue prediction)
-
-5. create and configure Slack app to communicate with node API 
-
-### Running (with docker)
+#### Running
 1. start ngrok (provides tunneling to access localhost from the Internet)
 
 2. execute in root folder `docker-compose up`
