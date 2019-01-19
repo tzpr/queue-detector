@@ -3,15 +3,15 @@ from flask import jsonify, render_template
 from flask_restful import Api # https://flask-restful.readthedocs.io/en/latest/
 
 from resources.hello import HelloSpace
+from resources.detect import DetectChange
 
 
 app = Flask(__name__)
 api = Api(app)
 
-
 # activate/register paths
 api.add_resource(HelloSpace, '/hello')
-
+api.add_resource(DetectChange, '/predict')
 
 
 if __name__ == '__main__':
