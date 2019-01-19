@@ -30,7 +30,7 @@ Python application
 - Slack channel were app can be configured (https://api.slack.com/apps)
 
 #### Running
-1. start ngrok (provides tunneling to access localhost from the Internet)
+1. start ngrok (provides tunneling to access localhost from the Internet) `ngrok http 4390`
 
 2. execute in root folder `docker-compose up`
 
