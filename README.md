@@ -1,5 +1,7 @@
 # detect change, predict queue
 
+![Image of Coffee Assistant](https://github.com/tzpr/queue-detector/blob/master/Screenshot.png | width=100)
+
 
 Components:
 
