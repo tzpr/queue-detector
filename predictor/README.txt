@@ -13,6 +13,6 @@ pip install -r requirements.txt
 
 * Run Flask application
 -------------------------------------------------------------------------------
-python3 app.py
+python app.py
 
 Local server starts in address http://127.0.0.1:5000/
