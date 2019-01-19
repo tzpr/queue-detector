@@ -2,7 +2,11 @@
 const express = require('express'); // https://www.npmjs.com/package/express
 const request = require('request'); // https://www.npmjs.com/package/request
 const redis = require("redis");     // https://github.com/NodeRedis/node_redis
-const message_broker = redis.createClient();
+const message_broker = redis.createClient({
+    host: 'localhost',
+    port: 6379
+});
+
 require('dotenv').config()          // https://www.npmjs.com/package/dotenv
 
 // https://nodejs.org/api/util.html#util_util_promisify_original
