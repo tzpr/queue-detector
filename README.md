@@ -22,7 +22,7 @@ Python application
  
  
  
-### Running on localhost
+### Running on localhost (without docker)
 #### Prerequisites
 - Node.js installed (https://nodejs.org/en/)
 - Python 3.x installed (https://www.python.org/downloads/)
@@ -41,7 +41,9 @@ Python application
 
 5. create and configure Slack app to communicate with node API 
 
+### Running on localhost (with docker)
 
+TBD
 
  
 
