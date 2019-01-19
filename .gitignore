@@ -10,3 +10,7 @@ ngrok
 # editor files
 .vscode
 slack-integration/.vscode
+
+# python stuff
+__pycache__
+venv
