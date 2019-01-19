@@ -26,6 +26,7 @@ Python application
 - Python 3.x installed (https://www.python.org/downloads/)
 - ngrok installed (https://ngrok.com/download)
 - redis installed (https://redis.io/download)
+- Slack channel were app can be configured (https://api.slack.com/apps)
 
 #### Running
 1. start ngrok (tunneling to access localhost from the Internet)
