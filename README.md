@@ -31,7 +31,7 @@ Python application
 - Slack channel were app can be configured (https://api.slack.com/apps)
 
 #### Running
-1. start ngrok (tunneling to access localhost from the Internet)
+1. start ngrok (provides tunneling to access localhost from the Internet)
 
 2. start redis (queue state cache)
 
@@ -39,7 +39,7 @@ Python application
 
 4. start python app (image processing and queue prediction)
 
-5. configure Slack app to communicate with node API 
+5. create and configure Slack app to communicate with node API 
 
 
 
