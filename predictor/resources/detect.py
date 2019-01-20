@@ -9,20 +9,55 @@ from redis import Redis
 redis = Redis(host=os.environ['REDIS_HOST'], port=os.environ['REDIS_PORT'])
 
 
-class DetectChange(Resource):
+class InitBaseImage(Resource):
+    def get(self):
+        '''
+        Get base image if available
+        '''
+
+        return {'message': 'Init base image',
+                'base_image': redis.get('base_image'),
+                'info': 'Resource: InitBaseImage GET)'}
+
+
+    def post(self):
+        '''
+        Init base image
+        '''
+        # TODO get img from POST request
+        img = 'IMG from POST'
+
+        redis.set('base_image', img)
+
+        return {'message': 'Init base image',
+                'base_image': img,
+                'info': 'Resource: InitBaseImage POST'}        
+
+
+
+class AnalyseImage(Resource):
     def get(self): 
         '''
-        Analyze received image and update queue state to redis
+        Just a test GET method for the Resource
         
-        TODO: change to POST and handle the image payload
-
-        ---
-        responses:
-          200:
-            description: Message returned
         '''
         state = self.check_queue()
-        return {'message': 'Hello from detector! ' + state}
+        return {'message': 'Test message from AnalyseImage',
+                'state': state,
+                'info': 'Resource: AnalyseImage GET)'}
+
+
+    def post(self):
+        '''
+        Post image to be analyzed
+        '''
+        # TODO get img from POST request
+        
+        state = self.check_queue()
+        return {'message': 'AnalyseImage',
+                'state': state,
+                'info': 'Resource: AnalyseImage POST'}
+
 
     def analyze_queue_picture(self):
         # just some fake values

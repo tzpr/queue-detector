@@ -5,7 +5,7 @@ from flask import jsonify, render_template
 from flask_restful import Api # https://flask-restful.readthedocs.io/en/latest/
 
 from resources.hello import HelloSpace
-from resources.detect import DetectChange
+from resources.detect import AnalyseImage, InitBaseImage
 
 bind_port = int(os.environ['BIND_PORT'])
 
@@ -15,7 +15,9 @@ api = Api(app)
 
 # activate/register paths
 api.add_resource(HelloSpace, '/hello')
-api.add_resource(DetectChange, '/predict')
+api.add_resource(AnalyseImage, '/predict')
+api.add_resource(InitBaseImage, '/init')
+
 
 
 if __name__ == '__main__':
