@@ -1,2 +1,4 @@
 
 Here's the todo list aka backlog
+ - implement a mobile client to take photos for predictor
+ - implement a model to analyse pictures
