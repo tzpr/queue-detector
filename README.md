@@ -38,6 +38,8 @@ Python application
 
  
 
+### Resources:
+https://github.com/facebookresearch/detectron2
 
 
 
