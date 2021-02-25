@@ -38,10 +38,6 @@ Python application
 3. create and configure Slack app to communicate with node API \
 (https://api.slack.com/tutorials/tunneling-with-ngrok)
 
- 
-
-### Resources:
-https://github.com/facebookresearch/detectron2
 
 
 
