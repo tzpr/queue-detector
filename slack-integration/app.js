@@ -3,10 +3,11 @@ const express = require('express'); // https://www.npmjs.com/package/express
 const request = require('request'); // https://www.npmjs.com/package/request
 const redis = require("redis");     // https://github.com/NodeRedis/node_redis
 
-var redisClient = redis.createClient(process.env.REDIS_PORT, 
-    process.env.REDIS_HOST);
-
 require('dotenv').config()          // https://www.npmjs.com/package/dotenv
+
+
+const redisClient = redis.createClient(process.env.REDIS_PORT, 
+    process.env.REDIS_HOST);
 
 // https://nodejs.org/api/util.html#util_util_promisify_original
 const {promisify} = require('util');
@@ -18,7 +19,7 @@ const redisGetAsync = promisify(redisClient.get).bind(redisClient);
 const app = express();
 
 // Define a port we want to listen to
-const PORT = 4390;
+const PORT = process.env.SLACK_INTEGRATION_API_PORT;
 
 function getQueueState() {
     return redisGetAsync('queue_state').then(function(res) {
@@ -38,7 +39,8 @@ app.listen(PORT, function () {
 
 // This route handles GET requests to our root ngrok address and responds with the same "Ngrok is working message" we used before
 app.get('/', function(req, res) { 
-    res.send('Ngrok is working! Path Hit: ' + req.url);
+    console.log('Hello from space! Ngrok is working!');
+    res.send('Hello from space! Ngrok is working! Path Hit: ' + req.url);
 });
 
 // This route handles get request to a /oauth endpoint. We'll use this endpoint for handling the logic of the Slack oAuth process behind our app.

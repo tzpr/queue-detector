@@ -5,9 +5,7 @@ import random
 
 
 # connect to redis
-# https://redis.io/topics/quickstart
-# https://github.com/andymccurdy/redis-py
-message_broker = redis.StrictRedis(host='localhost', port=6379, db=0)
+message_broker = redis.Redis(host='localhost', port=6060)
 
 
 def analyze_queue_picture():

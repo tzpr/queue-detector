@@ -16,9 +16,10 @@ Node application server
  - https://ngrok.com/
  
 Python application
- - interprets queue state from images
+ - Running in Jetson Nano
+ - predicts queue state from image
  - updates queue state to Redis cache
- - http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html
+
  
  
  
@@ -26,15 +27,16 @@ Python application
 
 #### Prerequisites
 - docker installed (https://www.docker.com/)
+- redis installed `docker run -d -p 6060:6379 --name coffee-queue redis`
 - ngrok installed (https://ngrok.com/download)
 - Slack channel were app can be configured (https://api.slack.com/apps)
 
 #### Running
 1. start ngrok (provides tunneling to access localhost from the Internet) `ngrok http 4390`
-
-2. execute in root folder `docker-compose up`
-
-3. create and configure Slack app to communicate with node API
+2. start redis `docker start coffee-queue`
+3. start slack-integration Node.js app `cd slack-integration && npm install && node app.js`
+3. create and configure Slack app to communicate with node API \
+(https://api.slack.com/tutorials/tunneling-with-ngrok)
 
  
 
