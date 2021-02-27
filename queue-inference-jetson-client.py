@@ -10,7 +10,7 @@ import jetson.utils
 message_broker = redis.Redis(host='localhost', port=6060)
 
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
-camera = jetson.utils.videoSource("csi://0")  # '/dev/video0' for V4L2
+camera = jetson.utils.videoSource("/dev/video0")  # V4L2 webcam
 
 
 def analyze_queue_picture():
