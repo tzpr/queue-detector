@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import redis
 import schedule
 import time
@@ -21,8 +23,9 @@ def analyze_queue_picture():
     img = camera.Capture()
     detections = net.Detect(img)
 
-    for idx in detections:
-        if detections[idx].ClassID == PERSON_CLASS_ID:
+    for detection in detections:
+        print(f'DEBUG detection: {detection}')
+        if detection.ClassID == PERSON_CLASS_ID:
             number_of_persons = number_of_persons + 1
 
     # https://realpython.com/python-string-formatting/
